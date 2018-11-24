@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+@import 'material_input';
+@import "bootstrap";
+@import 'colors';
+@import 'welcome';
+@import 'categories';
+ html{
+     height: 100%;
+     overflow: hidden;
+ }
+ body{
+     height: 100%;
+     .navbar{
+         padding: 0px;
+         background-color: #fff;
+         border-bottom: 1px solid black;
+        .navbar-brand{
+            padding: 0px; 
+            .logo{
+            width: 104px;
+            height: 65px;
+            }
+        }
+        .mat-div{
+            width: 30%;
+            .search-icon{
+                position: absolute;
+                bottom: 10px;
+            }
+        }
+        .nav-icons{
+            img{
+                margin-right: 8px;
+            }
+            a{
+                font-family: Raleway;
+                font-style: normal;
+                font-weight: normal;
+                line-height: normal;
+                font-size: 14px;
+
+                color: #000000;
+
+                margin-right: 73px;
+            }
+        }    
+     }
+     .container-fluid{
+         height: 100%;
+         .row{
+            height: 100%;
+            > .menu{
+                background-color: $azul-claro;
+                padding: 0;
+                text-align: center;
+                ul,li{
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                }
+                ul{
+                    &.collapsible-content{
+                        background-color: $azul-escuro;
+                        display: none;
+                    }
+                    li{
+                        border-bottom: 1px solid black;
+                        a,h3{
+                            width: 100%;
+                            text-align: center;
+                            vertical-align: middle;
+                            font-family: Raleway;
+                            line-height: normal;
+                            color: #000000;
+                            font-style: normal;
+                            padding: 0;
+                            margin: 0;
+                        }
+                        h3{
+                            height: 64px;
+                            line-height: 64px;
+                            background-color: $azul-escuro;
+                            font-weight: bold;
+                            font-size: 24px;
+                        }
+                        a{
+                            height: 32px;
+                            line-height: 32px;
+                            font-weight: normal;
+                            font-size: 14px; 
+                            text-decoration: none;
+                            width: 100%;
+                            display: block;
+                            .collabsable-icon{
+                                float: right;
+                                margin-top: 12px;
+                                margin-right: 8px;
+                            }      
+                        }
+                    }
+                }
+             }
+            > .content{
+                overflow-y: scroll;
+                padding-bottom: 128px;
+                background-color: $branco;
+                padding: 0;
+             }
+         }
+
+     }
+ }

@@ -1,0 +1,104 @@
+<%= form_for(product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :star_comfort %>
+    <%= f.text_field :star_comfort %>
+  </div>
+
+  <div class="field">
+    <%= f.label :star_siteUsage %>
+    <%= f.text_field :star_siteUsage %>
+  </div>
+
+  <div class="field">
+    <%= f.label :star_delivery %>
+    <%= f.text_field :star_delivery %>
+  </div>
+
+  <div class="field">
+    <%= f.label :star_attendance %>
+    <%= f.text_field :star_attendance %>
+  </div>
+
+  <div class="field">
+    <%= f.label :star_size %>
+    <%= f.text_field :star_size %>
+  </div>
+
+  <div class="field">
+    <%= f.label :star_quality %>
+    <%= f.text_field :star_quality %>
+  </div>
+
+  <div class="field">
+    <%= f.label :star_resolution %>
+    <%= f.text_field :star_resolution %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Category_id %>
+    <%= f.select :Category_id, Category.all.collect { |category| [category.name, category.id] } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= f.label :details %>
+    <%= f.text_field :details %>
+  </div>
+
+  <div class="field">
+    <%= f.label :modelSize %>
+    <%= f.text_field :modelSize %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <p>teste</p>
+<% end %>

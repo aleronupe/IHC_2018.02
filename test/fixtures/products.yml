@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 1.5
+  description: MyText
+  star_comfort: 1.5
+  star_siteUsage: 1.5
+  star_delivery: 1.5
+  star_attendance: 1.5
+  star_size: 1.5
+  star_quality: 1.5
+  star_resolution: 1.5
+  image: MyString
+  Category: one
+
+two:
+  name: MyString
+  price: 1.5
+  description: MyText
+  star_comfort: 1.5
+  star_siteUsage: 1.5
+  star_delivery: 1.5
+  star_attendance: 1.5
+  star_size: 1.5
+  star_quality: 1.5
+  star_resolution: 1.5
+  image: MyString
+  Category: two

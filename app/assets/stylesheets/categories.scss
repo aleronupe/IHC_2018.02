@@ -1,0 +1,39 @@
+// Place all the styles related to the Category controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.category_wrapper{
+    .row{
+        margin: 0px;
+        margin-top: 64px;
+        .product{
+            .picture{
+                border: 1px solid $salmao-escuro;
+                img{
+                    max-width: 100%;
+                }
+            }
+            .details{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 8px;
+                p{
+                    
+                    font-family: Roboto;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    font-size: 12px;
+
+                    color: #000000;
+
+                    &.price{
+                        min-width: fit-content;
+                        color: $salmao-escuro;
+                        margin-left: 32px;
+                    }
+                }
+            }
+        }
+    }
+}
