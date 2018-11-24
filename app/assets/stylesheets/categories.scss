@@ -7,18 +7,26 @@
         margin: 0px;
         margin-top: 64px;
         .product{
+            max-width: 223px !important;
+            padding: 0;
+            margin: 0 auto;
+            cursor: pointer;
             .picture{
+                display: block;
                 border: 1px solid $salmao-escuro;
+                text-align: center;
                 img{
-                    max-width: 100%;
+                    width: 221px;
+                    height: 221px;
+                    
                 }
             }
             .details{
                 display: flex;
                 justify-content: space-between;
                 margin-top: 8px;
-                p{
-                    
+                a{
+                    text-decoration: none;
                     font-family: Roboto;
                     font-style: normal;
                     font-weight: 500;
@@ -35,5 +43,8 @@
                 }
             }
         }
+    }
+    &:last-child{
+        margin-bottom: 150px;
     }
 }

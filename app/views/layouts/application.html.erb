@@ -36,25 +36,25 @@
             <li><h3>CATEGORIAS</h3></li>
             <li><a href = "javascript:void(0);" class = "collapsible">Higiene e bem estar<%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
             <ul class = "collapsible-content">
-              <li><a href = "#">Coletor</a></li>
-              <li><a href = "#">Absorvente</a></li>
-              <li><a href = "#">Sabonete Intimo</a></li>
-              <li><a href = "#">Desodorantes</a></li>
-              <li><a href = "#">Hidratantes</a></li>
+              <li><%= link_to 'Coletor', Category.find_by_name("Coletor") %></li>
+              <li><%= link_to 'Absorvente', Category.find_by_name("Absorvente") %></li>
+              <li><%= link_to 'Sabonete Intimo', Category.find_by_name("Sabonete Intimo") %></li>
+              <li><%= link_to 'Desodorantes', Category.find_by_name("Desodorantes") %></li>
+              <li><%= link_to 'Hidratantes', Category.find_by_name("Hidratantes") %></li>
             </ul>
             <li><a href = "javascript:void(0);" class = "collapsible">Langeries <%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
             <ul class = "collapsible-content">
-              <li><a href = "#">Calcinha</a></li>
-              <li><a href = "#">Sutiã</a></li>
-              <li><a href = "#">Camisola</a></li>
+              <li><%= link_to 'Calcinha', Category.find_by_name("Calcinha") %></li>
+              <li><%= link_to 'Sutiã', Category.find_by_name("Sutiã") %></li>
+              <li><%= link_to 'Camisola', Category.find_by_name("Camisola") %></li>
             </ul>
-            <li><a href = "#">Preservativos</a></li>
-            <li><a href = "#">Segurança</a></li>
-            <li><a href = "#">Acessórios</a></li>
+            <li><%= link_to 'Preservativos', Category.find_by_name("Preservativos") %></li>
+            <li><%= link_to 'Segurança', Category.find_by_name("Segurança") %></li>
+            <li><%= link_to 'Acessórios', Category.find_by_name("Acessórios") %></li>
             <li><a href = "javascript:void(0);" class = "collapsible">Transição Capilar<%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
             <ul class = "collapsible-content">
-              <li><a href = "#">Lenços</a></li>
-              <li><a href = "#">Perucas</a></li>
+              <li><%= link_to 'Lenços', Category.find_by_name("Lenços") %></li>
+              <li><%= link_to 'Perucas', Category.find_by_name("Perucas") %></li>
             </ul>
           </ul>
         </div>
@@ -87,5 +87,28 @@
         });
       }
     })    
+    var a;
+    $(document).ready(function(){
+      var categoryInput = $('.category_name_parser')[0];
+      if(categoryInput){
+        var category = categoryInput.value;
+        $( "li" ).each(function( index ) {
+          if($(this).text().includes(category)){
+            var aTag = $(this).children();
+            var parent = $(this).parent();
+            $(aTag).addClass('active');
+            if($(parent).hasClass('collapsible-content')){
+              var icon = $($($(parent).prev()).children()).children();
+              $(parent).css( "display", "block" );
+              $(icon).css({
+                "-webkit-transform": "rotate(180deg)",
+                "-moz-transform": "rotate(180deg)",
+                "transform": "rotate(180deg)" /* For modern browsers(CSS3)  */
+              });
+            }
+          }
+        });
+      }
+    });
   </script>
 </html>

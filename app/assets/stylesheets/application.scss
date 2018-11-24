@@ -97,6 +97,9 @@
                                 margin-top: 12px;
                                 margin-right: 8px;
                             }      
+                            &.active{
+                                text-decoration: underline;
+                            }
                         }
                     }
                 }
