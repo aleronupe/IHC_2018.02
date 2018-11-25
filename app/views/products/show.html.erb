@@ -1,66 +1,141 @@
 <input style="display:none" class = "category_name_parser" value = <%= @category.name %> >
 
-<p id="notice"><%= notice %></p>
+<div class = "product-wrapper">
+  <div class = "row major-details">
+    <div class = "picture col-4"><%= image_tag @product.image.url unless @product.image.blank? %></div>
+    <div class = "other-details col-8">
+      <h1><%=@product.name%></h1>
+      <div class = "quantity">
+        <p>Quantidade: </p>
+        <div class = "counter">
+          <%= link_to image_tag("collapse_icon", class:"collabsable-icon"), 'javascript:increment()'%>
+          <input class = "item_qtd" value = <%= @quantity %>>
+          <%= link_to image_tag("collapse_icon", class:"collabsable-icon"), 'javascript:decrement()'%>
+        </div>
+      </div>
+      <p class = "price"><%='R$ ' + number_with_precision(@product.price, precision: 2).to_s()%></p>
+      <div class = "buttons">
+        <%=link_to 'Adicionar ao carrinho', '#', class:"btn btn-primary"%>
+        <%=link_to 'Comprar', '#', class: "btn btn-secondary"%>
+      </div>
+    </div>
+  </div>
+  <div class = "description">
+    <h2>Descrição</h2>
+    <p><%= @product.name %></p>
+    <%if @product.description?%><p><%= @product.description%></p><% end %>
+    <p>Informações Adicionais:</p>
+    <%if @product.size?%><p>Tamanho: <%=@product.size%></p><% end %>
+    <%if @product.color?%><p>Cor: <%=@product.color%></p><% end %>
+    <%if @product.model?%><p>Modelo: <%=@product.model%></p><% end %>
+    <%if @product.details?%><p>Detalhes Adicionais: <%=@product.details%></p><% end %>
+    <%if @product.modelSize?%><p>Modelo Veste: <%=@product.modelSize%></p><% end %>
+    <p>Categoria: <%=@category.name%></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+    <h2>Avaliações</h2>
+    <div class = "stars">
+      <div class = "star-wrapper">
+        <% contador = 1 %>
+        <% while contador <= 5 %>
+          <% if contador <= @product.star_comfort %>
+            <%=image_tag("star_fill", class:"collabsable-icon")%>
+          <% else %>
+            <%=image_tag("star_empty", class:"collabsable-icon")%>
+          <% end %>
+          <% contador += 1 %>
+        <% end %>
+        <p>Conforto</p>
+      </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+      <div class = "star-wrapper">
+        <% contador = 1 %>
+        <% while contador <= 5 %>
+          <% if contador <= @product.star_siteUsage %>
+            <%=image_tag("star_fill", class:"collabsable-icon")%>
+          <% else %>
+            <%=image_tag("star_empty", class:"collabsable-icon")%>
+          <% end %>
+          <% contador += 1 %>
+        <% end %>
+        <p>Uso do Site</p>
+      </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+      <div class = "star-wrapper">
+        <% contador = 1 %>
+        <% while contador <= 5 %>
+          <% if contador <= @product.star_delivery %>
+            <%=image_tag("star_fill", class:"collabsable-icon")%>
+          <% else %>
+            <%=image_tag("star_empty", class:"collabsable-icon")%>
+          <% end %>
+          <% contador += 1 %>
+        <% end %>
+        <p>Entrega</p>
+      </div>
 
-<p>
-  <strong>Star comfort:</strong>
-  <%= @product.star_comfort %>
-</p>
+      <div class = "star-wrapper">
+        <% contador = 1 %>
+        <% while contador <= 5 %>
+          <% if contador <= @product.star_attendance %>
+            <%=image_tag("star_fill", class:"collabsable-icon")%>
+          <% else %>
+            <%=image_tag("star_empty", class:"collabsable-icon")%>
+          <% end %>
+          <% contador += 1 %>
+        <% end %>
+        <p>Atendimento</p>
+      </div>
 
-<p>
-  <strong>Star siteusage:</strong>
-  <%= @product.star_siteUsage %>
-</p>
+      <div class = "star-wrapper">
+        <% contador = 1 %>
+        <% while contador <= 5 %>
+          <% if contador <= @product.star_size %>
+            <%=image_tag("star_fill", class:"collabsable-icon")%>
+          <% else %>
+            <%=image_tag("star_empty", class:"collabsable-icon")%>
+          <% end %>
+          <% contador += 1 %>
+        <% end %>
+        <p>Tamanho</p>
+      </div>
 
-<p>
-  <strong>Star delivery:</strong>
-  <%= @product.star_delivery %>
-</p>
+      <div class = "star-wrapper">
+        <% contador = 1 %>
+        <% while contador <= 5 %>
+          <% if contador <= @product.star_quality %>
+            <%=image_tag("star_fill", class:"collabsable-icon")%>
+          <% else %>
+            <%=image_tag("star_empty", class:"collabsable-icon")%>
+          <% end %>
+          <% contador += 1 %>
+        <% end %>
+        <p>Qualidade</p>
+      </div>
 
-<p>
-  <strong>Star attendance:</strong>
-  <%= @product.star_attendance %>
-</p>
+      <div class = "star-wrapper">
+        <% contador = 1 %>
+        <% while contador <= 5 %>
+          <% if contador <= @product.star_resolution %>
+            <%=image_tag("star_fill", class:"collabsable-icon")%>
+          <% else %>
+            <%=image_tag("star_empty", class:"collabsable-icon")%>
+          <% end %>
+          <% contador += 1 %>
+        <% end %>
+        <p>Resolução</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Star size:</strong>
-  <%= @product.star_size %>
-</p>
-
-<p>
-  <strong>Star quality:</strong>
-  <%= @product.star_quality %>
-</p>
-
-<p>
-  <strong>Star resolution:</strong>
-  <%= @product.star_resolution %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @product.image.url unless @product.image.blank? %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @product.Category.name %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<script>
+function increment(){
+  $('.item_qtd')[0].value++;
+}
+function decrement(){
+  var qtd  = $('.item_qtd')[0].value;
+  if(qtd > 1){
+    $('.item_qtd')[0].value--;
+  }
+}
+</script>
