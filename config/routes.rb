@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+
   resources :kart_items
+
   resources :products
   resources :categories
-  
+
   get 'welcome/index'
 
   root 'welcome#index'
