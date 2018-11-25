@@ -25,29 +25,28 @@ class KartItemsController < ApplicationController
   # POST /kart_items.json
   def create
     @kart_item = KartItem.new(kart_item_params)
-
-    respond_to do |format|
-      if @kart_item.save
-        format.html { redirect_to @kart_item, notice: 'Kart item was successfully created.' }
-        format.json { render :show, status: :created, location: @kart_item }
-      else
-        format.html { render :new }
-        format.json { render json: @kart_item.errors, status: :unprocessable_entity }
-      end
+    @equal = KartItem.where(product_id: @kart_item.product_id).first;
+    if @equal.nil?
+      @kart_item.save
+      @ok = true
+    else
+      @new_quantity = @kart_item.quantity + @equal.quantity;
+      @equal.update(quantity: @new_quantity)
+      @ok=true
     end
   end
 
   # PATCH/PUT /kart_items/1
   # PATCH/PUT /kart_items/1.json
   def update
+    if kart_item_params[:quantity].to_i > 0 
+      @kart_item.update(kart_item_params);
+    else
+      @kart_item.destroy
+    end
     respond_to do |format|
-      if @kart_item.update(kart_item_params)
-        format.html { redirect_to @kart_item, notice: 'Kart item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @kart_item }
-      else
-        format.html { render :edit }
-        format.json { render json: @kart_item.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to request.referrer, notice: 'Kart item was successfully updated.' }
+      format.json { render :show, status: :ok, location: @kart_item }
     end
   end
 

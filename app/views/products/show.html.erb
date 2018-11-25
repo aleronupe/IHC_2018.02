@@ -1,5 +1,13 @@
 <input style="display:none" class = "category_name_parser" value = <%= @category.name %> >
-
+<div class = "added-to-kart">
+  <div class = "kart-modal">
+    <p>Produto adicionado com sucesso!</p>
+    <div class = "action-buttons">
+      <a href="<%='/kart_items'%>" class = "btn btn-primary">Ir para o carrinho</a>
+      <a href="javascript:void(0)" id = "close-modal" class = "btn btn-secondary">Continuar comprando</a>
+    </div>
+  </div>
+</div>
 <div class = "product-wrapper">
   <div class = "row major-details">
     <div class = "picture col-4"><%= image_tag @product.image.url unless @product.image.blank? %></div>
@@ -17,8 +25,8 @@
         </div>
         <p class = "price"><%='R$ ' + number_with_precision(@product.price, precision: 2).to_s()%></p>
         <div class = "buttons">
-          <%= f.submit 'Adicionar ao carrinho', :class => 'btn btn-primary' %>
-          <%=link_to 'Comprar', '#', class: "btn btn-secondary"%>
+          <a href="javascript:void(0)" id = "add_kart_btn" class = "btn btn-primary">Adicionar ao carrinho</a>
+          <a href="javascript:void(0)" id = "buy_btn" class = "btn btn-secondary">Comprar</a>
         </div>
       <% end %>
     </div>
@@ -142,7 +150,18 @@ function decrement(){
   }
 }
 $('#add_kart_btn').click(function(e) {
-  e.preventDefault();
-  $(this).closest('form').submit()
+  $($($(this).parent()).parent()).submit();
+  $(".added-to-kart").css("display","flex");
+  $('.item-count').text(parseInt($('.item-count').text(), 10)+1)
+});
+
+$('#buy_btn').click(function(){
+  $($($(this).parent()).parent()).submit();
+  setTimeout(function(){
+    location.href = '/kart_items';
+  }, 500);
+});
+$("#close-modal").click(function(){
+  location.reload();
 });
 </script>
