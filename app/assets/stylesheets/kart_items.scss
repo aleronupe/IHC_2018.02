@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .kart-items-wrapper{
     margin-bottom: 150px;
+    min-height: 100%;
+    height: fit-content !important;
     .kart-content{
         .kart-product{
             height: fit-content;
@@ -13,13 +15,18 @@
                 object-fit: cover;
                 border-radius: 500px;
             }
-            h3{
-                font-family: Raleway;
-                font-style: normal;
-                padding-right: 32px;
-                font-weight: 500;
-                line-height: normal;
-                font-size: 24px;
+            a{
+                text-decoration: none;  
+                color: black;
+                h3{
+                    font-family: Raleway;
+                    font-style: normal;
+                    padding-right: 32px;
+                    font-weight: 500;
+                    line-height: normal;
+                    font-size: 24px;
+                }
+
             }
             .col-9{
                 position: relative;
@@ -39,7 +46,6 @@
                 .subtotal{
                     position: absolute;
                     bottom: 0px;
-                    left: 0px;
                 }
             }
         }
