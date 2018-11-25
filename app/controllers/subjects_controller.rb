@@ -10,6 +10,7 @@ class SubjectsController < ApplicationController
   # GET /subjects/1
   # GET /subjects/1.json
   def show
+    @discussions = Discussion.all
   end
 
   # GET /subjects/new
@@ -69,6 +70,6 @@ class SubjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subject_params
-      params.require(:subject).permit(:name, :discussion)
+      params.require(:subject).permit(:name)
     end
 end

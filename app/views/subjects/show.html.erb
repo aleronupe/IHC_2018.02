@@ -4,11 +4,14 @@
   <strong>Name:</strong>
   <%= @subject.name %>
 </p>
+<ul>
+<% @discussions.each do |discussion| %>
+  <% if discussion.subject_id == @subject.id %>
+    <li><%=discussion.title%></li>
+  <% end %>
+<% end %>
+</ul>
 
-<p>
-  <strong>Discussion:</strong>
-  <%= @subject.discussion %>
-</p>
 
 <%= link_to 'Edit', edit_subject_path(@subject) %> |
 <%= link_to 'Back', subjects_path %>
