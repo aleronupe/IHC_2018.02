@@ -5,19 +5,22 @@
     <div class = "picture col-4"><%= image_tag @product.image.url unless @product.image.blank? %></div>
     <div class = "other-details col-8">
       <h1><%=@product.name%></h1>
-      <div class = "quantity">
-        <p>Quantidade: </p>
-        <div class = "counter">
-          <%= link_to image_tag("collapse_icon", class:"collabsable-icon"), 'javascript:increment()'%>
-          <input class = "item_qtd" value = <%= @quantity %>>
-          <%= link_to image_tag("collapse_icon", class:"collabsable-icon"), 'javascript:decrement()'%>
+      <%= form_for(@kart_item) do |f| %>
+        <div class = "quantity">
+          <p>Quantidade: </p>
+          <div class = "counter field">
+            <%= link_to image_tag("collapse_icon", class:"collabsable-icon"), 'javascript:increment()'%>
+            <%= f.text_field :quantity, class: "item_qtd", value:@quantity %>
+            <%= f.hidden_field :product_id, :value => @product.id %>
+            <%= link_to image_tag("collapse_icon", class:"collabsable-icon"), 'javascript:decrement()'%>
+          </div>
         </div>
-      </div>
-      <p class = "price"><%='R$ ' + number_with_precision(@product.price, precision: 2).to_s()%></p>
-      <div class = "buttons">
-        <%=link_to 'Adicionar ao carrinho', '#', class:"btn btn-primary"%>
-        <%=link_to 'Comprar', '#', class: "btn btn-secondary"%>
-      </div>
+        <p class = "price"><%='R$ ' + number_with_precision(@product.price, precision: 2).to_s()%></p>
+        <div class = "buttons">
+          <%= f.submit 'Adicionar ao carrinho', :class => 'btn btn-primary' %>
+          <%=link_to 'Comprar', '#', class: "btn btn-secondary"%>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class = "description">
@@ -138,4 +141,8 @@ function decrement(){
     $('.item_qtd')[0].value--;
   }
 }
+$('#add_kart_btn').click(function(e) {
+  e.preventDefault();
+  $(this).closest('form').submit()
+});
 </script>

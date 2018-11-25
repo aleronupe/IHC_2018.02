@@ -24,6 +24,7 @@
         <%=image_tag("forum_icon.svg", class: "search-icon")%>
         <a href = "">Fórum</a>
         <%=image_tag("carrinho_icon.svg", class: "search-icon")%>
+        <%=link_to 'Carrinho', kart_items_path%>
         <a href = "">Carrinho</a>
       </div>
       <div class="dropdown">
@@ -43,37 +44,40 @@
       </div>
     </nav>
 
-
     <div class = "container-fluid">
       <div class = "row">
-        <div class = "col-2 menu">
-          <ul>
-            <li><h3>CATEGORIAS</h3></li>
-            <li><a href = "javascript:void(0);" class = "collapsible">Higiene e bem estar<%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
-            <ul class = "collapsible-content">
-              <li><%= link_to 'Coletor', Category.find_by_name("Coletor") %></li>
-              <li><%= link_to 'Absorvente', Category.find_by_name("Absorvente") %></li>
-              <li><%= link_to 'Sabonete Intimo', Category.find_by_name("Sabonete Intimo") %></li>
-              <li><%= link_to 'Desodorantes', Category.find_by_name("Desodorantes") %></li>
-              <li><%= link_to 'Hidratantes', Category.find_by_name("Hidratantes") %></li>
+        <%if !(current_page?(kart_items_path))%>
+          <div class = "col-2 menu">
+            <ul>
+              <li><h3>CATEGORIAS</h3></li>
+              <li><a href = "javascript:void(0);" class = "collapsible">Higiene e bem estar<%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
+              <ul class = "collapsible-content">
+                <li><%= link_to 'Coletor', Category.find_by_name("Coletor") %></li>
+                <li><%= link_to 'Absorvente', Category.find_by_name("Absorvente") %></li>
+                <li><%= link_to 'Sabonete Intimo', Category.find_by_name("Sabonete Intimo") %></li>
+                <li><%= link_to 'Desodorantes', Category.find_by_name("Desodorantes") %></li>
+                <li><%= link_to 'Hidratantes', Category.find_by_name("Hidratantes") %></li>
+              </ul>
+              <li><a href = "javascript:void(0);" class = "collapsible">Langeries <%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
+              <ul class = "collapsible-content">
+                <li><%= link_to 'Calcinha', Category.find_by_name("Calcinha") %></li>
+                <li><%= link_to 'Sutiã', Category.find_by_name("Sutiã") %></li>
+                <li><%= link_to 'Camisola', Category.find_by_name("Camisola") %></li>
+              </ul>
+              <li><%= link_to 'Preservativos', Category.find_by_name("Preservativos") %></li>
+              <li><%= link_to 'Segurança', Category.find_by_name("Segurança") %></li>
+              <li><%= link_to 'Acessórios', Category.find_by_name("Acessórios") %></li>
+              <li><a href = "javascript:void(0);" class = "collapsible">Transição Capilar<%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
+              <ul class = "collapsible-content">
+                <li><%= link_to 'Lenços', Category.find_by_name("Lenços") %></li>
+                <li><%= link_to 'Perucas', Category.find_by_name("Perucas") %></li>
+              </ul>
             </ul>
-            <li><a href = "javascript:void(0);" class = "collapsible">Langeries <%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
-            <ul class = "collapsible-content">
-              <li><%= link_to 'Calcinha', Category.find_by_name("Calcinha") %></li>
-              <li><%= link_to 'Sutiã', Category.find_by_name("Sutiã") %></li>
-              <li><%= link_to 'Camisola', Category.find_by_name("Camisola") %></li>
-            </ul>
-            <li><%= link_to 'Preservativos', Category.find_by_name("Preservativos") %></li>
-            <li><%= link_to 'Segurança', Category.find_by_name("Segurança") %></li>
-            <li><%= link_to 'Acessórios', Category.find_by_name("Acessórios") %></li>
-            <li><a href = "javascript:void(0);" class = "collapsible">Transição Capilar<%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
-            <ul class = "collapsible-content">
-              <li><%= link_to 'Lenços', Category.find_by_name("Lenços") %></li>
-              <li><%= link_to 'Perucas', Category.find_by_name("Perucas") %></li>
-            </ul>
-          </ul>
-        </div>
-        <div class = "col-10 content">
+          </div>
+          <div class = "col-10 content">
+        <% else %>
+          <div class = "col-12 content">
+        <% end %>
           <%= yield %>
         </div>
       </div>
