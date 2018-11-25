@@ -1,3 +1,102 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.product-wrapper{
+    *{ font-family: Raleway; }
+    .major-details{
+        padding-top: 45px;
+        .picture{
+            padding-left: 54px;
+            img{
+                object-fit: cover ;
+                width: 286px;
+                border: 1px solid $salmao-escuro;
+                height: 286px;
+            }
+        }
+        .other-details{
+            padding-left: 50px;
+            .buttons{
+                a{
+                    margin-right: 32px;
+                }
+            }
+            h1, p{
+                font-style: normal;
+                font-weight: normal;
+                line-height: normal;
+                color: $preto;
+            }
+            h1{
+                font-size: 38px;
+            }
+            p{
+                width: fit-content;
+                font-size: 18px;
+                margin-top: 64px;
+                &.price{
+                    margin-top: 12px;
+                    font-size: 38px;
+                    color: $vermelho;
+                }
+            }
+            .quantity{
+                .counter, p {display: inline-block; }
+                .counter {
+                    height: 96px;
+                    width: 64px;
+                    margin-left: 62px;
+                    position: relative;
+                    a{
+                        position: absolute;
+                        &:first-child{
+                            top: 24px;
+                            left: 10px;
+                            -webkit-transform: rotate(180deg);
+                            -moz-transform: rotate(180deg);
+                            transform: rotate(180deg);
+                        }
+                        &:last-child{
+                            bottom: 23px;
+                            left: 10px;
+                        }
+                    }
+                    input{
+                        width: 32px;
+                        height: 100%;
+                        -webkit-appearance: caret;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    .description{
+        margin: 56px 0px 150px 40px;
+        h2,p{
+            font-style: normal;
+            font-weight: normal;
+            line-height: normal;
+            color: #000000;
+        }
+        h2{
+            font-size: 32px;
+        }
+        p{
+            font-size: 14px;
+        }
+        .stars{
+            display: flex;
+            align-content: space-between;
+            .star-wrapper{
+                flex: 1;
+                font-family: Raleway;
+                font-style: normal;
+                font-weight: normal;
+                line-height: normal;
+                font-size: 18px;
+            }
+        }
+    }
+
+}

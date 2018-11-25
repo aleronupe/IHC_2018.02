@@ -5,6 +5,25 @@
 @import 'colors';
 @import 'welcome';
 @import 'categories';
+@import 'products';
+.btn{
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 14px;
+    text-align: center;
+}
+.btn-secondary{
+    color: #FFFEFE;
+    background: #E24763;
+    
+}
+.btn-primary{
+    background:transparent;
+    color: #29CBB9;
+    border: 1px solid #29CBB9;
+}
+
  html{
      height: 100%;
      overflow: hidden;

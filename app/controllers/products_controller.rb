@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @category = Category.find(@product.Category_id)
+    @quantity = 1
   end
 
   # GET /products/new
