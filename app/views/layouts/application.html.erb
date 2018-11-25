@@ -25,9 +25,23 @@
         <a href = "">Fórum</a>
         <%=image_tag("carrinho_icon.svg", class: "search-icon")%>
         <a href = "">Carrinho</a>
-        <%=image_tag("perfil_icon.svg", class: "search-icon")%>
-        <a href = "">Perfil</a>
       </div>
+
+      <div class = 'btn-group pull-right right-nav'>
+        <button type="button" class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+        <%=image_tag("perfil_icon.svg", class: "search-icon")%>
+        <a href = "javascript:void(0);" class = "collapsible">Perfil</a>
+      </div>
+      
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <li><%= link_to 'Edit profile', edit_user_registration_path  %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
+        <% else %>
+        <li><%= link_to "Sign up", new_user_registration_path  %></li>
+        <li><%= link_to "Login", new_user_session_path  %></li>
+        <% end %>
+      
     </nav>
     <div class = "container-fluid">
       <div class = "row">
