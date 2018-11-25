@@ -25,23 +25,28 @@
         <a href = "">Fórum</a>
         <%=image_tag("carrinho_icon.svg", class: "search-icon")%>
         <a href = "">Carrinho</a>
-      </div>
-
-      <div class = 'btn-group pull-right right-nav'>
-        <button type="button" class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
         <%=image_tag("perfil_icon.svg", class: "search-icon")%>
         <a href = "javascript:void(0);" class = "collapsible">Perfil</a>
       </div>
-      
+      <div class="dropdown">
+       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+       <%=image_tag("perfil_icon.svg", class: "search-icon")%>
+       Perfil
+       </button>
+      <div class="dropdown-menu">
         <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
-          <li><%= link_to 'Edit profile', edit_user_registration_path  %></li>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <a class="dropdown-item"><%= button_to 'Edit profile', edit_user_registration_path, :class => 'button-dropdown'  %></a>
+        <a class="dropdown-item"><%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'button-dropdown'  %></a>
         <% else %>
-        <li><%= link_to "Sign up", new_user_registration_path  %></li>
-        <li><%= link_to "Login", new_user_session_path  %></li>
+        <a class="dropdown-item"><%= button_to "Sign up", new_user_registration_path, :class => 'button-dropdown'  %></a>
+        <a class="dropdown-item"><%= button_to "Login", new_user_session_path, :class => 'button-dropdown'  %></a>
         <% end %>
-      
+      </div>
+</div>
+      <ul class = "collapsible-content">
+
+      </ul>
     </nav>
     <div class = "container-fluid">
       <div class = "row">
@@ -100,7 +105,7 @@
           "transform": "rotate(180deg)" /* For modern browsers(CSS3)  */
         });
       }
-    })    
+    })
     var a;
     $(document).ready(function(){
       var categoryInput = $('.category_name_parser')[0];
