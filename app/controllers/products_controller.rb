@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   def show
     @category = Category.find(@product.Category_id)
     @quantity = 1
+    @kart_item = KartItem.new
   end
 
   # GET /products/new
