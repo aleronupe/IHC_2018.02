@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :commentaries
+  resources :discussions
+  resources :subjects
   devise_for :users
   resources :products
   resources :categories
