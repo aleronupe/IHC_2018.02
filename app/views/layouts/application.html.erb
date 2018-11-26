@@ -17,17 +17,14 @@
         <%=image_tag("logo.svg", class: "logo")%>
       </a>
       <div class="mat-div">
-      <%= form_tag(products_path, method: :get) do %>
-        <%=image_submit_tag("search_icon.svg", class:'search-icon')%>
-        <%=text_field_tag :term, nil,placeholder: 'Pesquise por um produto', class: 'mat-input', id: 'search' %>
-      <% end %>
+        <%# Added link to forum %>
+        <%=image_tag("search_icon.svg", class: "search-icon")%>
+        <input type="text" class="mat-input" id="search" placeholder = "Pesquise por um produto">
       </div>
       <div class = "nav-icons">
         <%=image_tag("forum_icon.svg", class: "search-icon")%>
         <a href="/subjects/">Fórum</a>
-
         <%# Added link to carrinho %>
-
         <a href = "<%=kart_items_path%>" class = "icon-link">
           <%=image_tag("carrinho_icon.svg", class: "search-icon")%>
           <% @contador = KartItem.all.count %>
@@ -36,9 +33,7 @@
           <% end %>
         </a>
         <%=link_to 'Carrinho', kart_items_path%>
-
         <%# Added block of button %>
-
         <div class="dropdown">
         <button type="button" class="dropbtn">
         <%=image_tag("perfil_icon.svg", class: "search-icon")%>
@@ -60,7 +55,7 @@
 
     <div class = "container-fluid">
       <div class = "row">
-        <% if (current_page?(products_path)) || (current_page?(categories_path)) || (current_page?('/')) %>
+        <% if !(current_page?(commentaries_path)) && !(current_page?(discussions_path)) && !(current_page?(subjects_path)) && !(current_page?(kart_items_path)) %>
           <div class = "col-2 menu">
             <ul>
               <li><h3>CATEGORIAS</h3></li>
@@ -91,33 +86,20 @@
           <div class = "col-10 content">
           <%# If of pages with the bar of Forum %>
         <% elsif (current_page?(commentaries_path)) || (current_page?(discussions_path)) || (current_page?(subjects_path)) %>
-         <div class = "col-2 menu">
-            <ul>
-              <li><h3>TEMAS</h3></li>
-              <li><a href = "javascript:void(0);" class = "collapsible">Higiene e bem estar<%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
-              <ul class = "collapsible-content">
-                <li><%= link_to 'Coletor', Category.find_by_name("Coletor") %></li>
-                <li><%= link_to 'Absorvente', Category.find_by_name("Absorvente") %></li>
-                <li><%= link_to 'Sabonete Intimo', Category.find_by_name("Sabonete Intimo") %></li>
-                <li><%= link_to 'Desodorantes', Category.find_by_name("Desodorantes") %></li>
-                <li><%= link_to 'Hidratantes', Category.find_by_name("Hidratantes") %></li>
+         <div class = "col-12 content">
+          <%# Second navbar %>
+            <div class = "navbar_forum">
+              <ul>
+                <li><title>Temas</title></li>
+                <li><%= link_to 'Sexo', Subject.find_by_name("Sexo") %></li>
+                <li><%= link_to 'Ciclo Menstrual', Subject.find_by_name("Ciclo Menstrual") %></li>
+                <li><%= link_to 'Maternidade', Subject.find_by_name("Maternidade") %></li>
+                <li><%= link_to 'Dicas de Produtos', Subject.find_by_name("Dicas de Produtos") %></li>
+                <li><%= link_to 'Em Alta', Subject.find_by_name("Em Alta") %></li>
+                <li><%= link_to 'Regras', Subject.find_by_name("Regras") %></li>
               </ul>
-              <li><a href = "javascript:void(0);" class = "collapsible">Langeries <%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
-              <ul class = "collapsible-content">
-                <li><%= link_to 'Calcinha', Category.find_by_name("Calcinha") %></li>
-                <li><%= link_to 'Sutiã', Category.find_by_name("Sutiã") %></li>
-                <li><%= link_to 'Camisola', Category.find_by_name("Camisola") %></li>
-              </ul>
-              <li><%= link_to 'Preservativos', Category.find_by_name("Preservativos") %></li>
-              <li><%= link_to 'Segurança', Category.find_by_name("Segurança") %></li>
-              <li><%= link_to 'Acessórios', Category.find_by_name("Acessórios") %></li>
-              <li><a href = "javascript:void(0);" class = "collapsible">Transição Capilar<%=image_tag("collapse_icon", class:"collabsable-icon")%></a></li>
-              <ul class = "collapsible-content">
-                <li><%= link_to 'Lenços', Category.find_by_name("Lenços") %></li>
-                <li><%= link_to 'Perucas', Category.find_by_name("Perucas") %></li>
-              </ul>
-            </ul>
-          </div>
+            </div>
+  
         <% else %>
           <div class = "col-12 content">
         <% end %>
