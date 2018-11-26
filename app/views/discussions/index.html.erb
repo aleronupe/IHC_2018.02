@@ -29,5 +29,6 @@
 </table>
 
 <br>
-
+<% if user_signed_in? %>
 <%= link_to 'New Discussion', new_discussion_path %>
+<% end %>
