@@ -1,3 +1,36 @@
 // Place all the styles related to the subjects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.discussion-card{
+    border-style: solid;
+    border-color: #E6E6E6;
+    border-radius: 5px;
+    border-width: 2px;
+    padding: 10px;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+.light-text{
+    font-weight: 100;
+}
+
+.txt-2{
+    font-size: 25px;
+}
+
+.red-text{
+    color: #DF013A !important;
+}
+
+.bold{
+    font-weight: 500;
+}
+
+.max-100{
+    max-width: 100% !important;
+}

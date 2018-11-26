@@ -1,49 +1,26 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Description</th>
-      <th>Star comfort</th>
-      <th>Star siteusage</th>
-      <th>Star delivery</th>
-      <th>Star attendance</th>
-      <th>Star size</th>
-      <th>Star quality</th>
-      <th>Star resolution</th>
-      <th>Image</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<% @contador = 0%>
+<div class = "category_wrapper">
     <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.description %></td>
-        <td><%= product.star_comfort %></td>
-        <td><%= product.star_siteUsage %></td>
-        <td><%= product.star_delivery %></td>
-        <td><%= product.star_attendance %></td>
-        <td><%= product.star_size %></td>
-        <td><%= product.star_quality %></td>
-        <td><%= product.star_resolution %></td>
-        <td><%= product.image %></td>
-        <td><%= product.Category %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <% if @contador%3 == 0 %>
+            <div class = "row">
+        <% end %>
+        <div class = "col-4 product">
+            <%= link_to product, class: "picture" do%>
+                <%= image_tag product.image.url unless product.image.blank? %>
+            <% end %>
+            <div class = "details">
+                <%= link_to product.name, product%>
+                <%= link_to 'R$ ' + number_with_precision(product.price, precision: 2).to_s(),product , class: "price" %>
+            </div>
+        </div>
+        <% @contador += 1 %>
+        <% if @contador%3 == 0 %>
+            </div>
+        <% end %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+    <% while @contador%3 != 0 %>
+        <div class = "col-4 product"></div>
+        <% @contador += 1 %>
+    <% end %>
+</div>

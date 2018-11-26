@@ -1,0 +1,46 @@
+<div class = "row kart-items-wrapper">
+  <div class = "col-7 offset-1 kart-content">
+    <% @kart_items.each do |kart_item| %>
+      <% product = Product.find(kart_item.product.id) %> 
+      <%= form_for(kart_item) do |f| %>
+        <div class = "kart-product row">
+        <%= f.hidden_field :product_id, :value => product.id %>
+          <div class = "col-3">
+            <%= image_tag product.image.url unless product.image.blank?%>
+          </div>
+          <div class = "col-9">
+            <%= link_to product do %><h3><%=product.name%></h3><% end %>
+            <a><%='R$ ' + number_with_precision(product.price, precision: 2).to_s()%></a>
+            <a class = "price">Quantidade:</a> <%= f.text_field :quantity, :value => kart_item.quantity, class:"quantity-input" %>
+            <p class = "subtotal">Subtotal: <%='R$ ' + number_with_precision(product.price*kart_item.quantity, precision: 2).to_s()%></p>
+            <%=link_to image_tag("cancel-icon.svg", class: "logo"), kart_item, method: :delete %>
+            
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>  
+  <div class = "col-4 kart-abstract">
+    <%if @kart_items.count == 0%>
+      <p class = "empty">OPS! SEU CARRINHO ESTÁ VAZIO!</p>
+    <%else%>
+      <h2>Resumo do Pedido:</h2>
+      <% total = 0 %>
+      <% @kart_items.each do |kart_item| %>
+          <% product = Product.find(kart_item.product.id) %> 
+          <div class = "item">
+            <p class = "abstract-text"><%= kart_item.quantity.to_s() + 'x ' + product.name %></p>
+            <p class = "price"><%='R$ ' + number_with_precision(product.price*kart_item.quantity, precision: 2).to_s()%></p>
+            <% total += kart_item.quantity*product.price %>
+          </div>
+      <% end %>
+      <p class = "total-value">Total: R$ <%=number_with_precision(total, precision: 2)%></p>
+    <%end%>
+  </div>
+</div>
+
+<script>
+$('input.quantity-input').on('input',function(e){
+  $(this.form).submit();
+});
+</script>
