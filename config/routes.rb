@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   resources :discussions
   resources :subjects
   devise_for :users
-
   resources :kart_items
-
   resources :products
   resources :categories
 

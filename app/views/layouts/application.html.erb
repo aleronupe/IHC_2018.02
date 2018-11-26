@@ -17,14 +17,18 @@
         <%=image_tag("logo.svg", class: "logo")%>
       </a>
       <div class="mat-div">
+
         <%# Added link to forum %>
+
         <%=image_tag("search_icon.svg", class: "search-icon")%>
         <input type="text" class="mat-input" id="search" placeholder = "Pesquise por um produto">
       </div>
       <div class = "nav-icons">
         <%=image_tag("forum_icon.svg", class: "search-icon")%>
         <a href="/subjects/">Fórum</a>
+
         <%# Added link to carrinho %>
+
         <a href = "<%=kart_items_path%>" class = "icon-link">
           <%=image_tag("carrinho_icon.svg", class: "search-icon")%>
           <% @contador = KartItem.all.count %>
@@ -33,7 +37,9 @@
           <% end %>
         </a>
         <%=link_to 'Carrinho', kart_items_path%>
+
         <%# Added block of button %>
+
         <div class="dropdown">
         <button type="button" class="dropbtn">
         <%=image_tag("perfil_icon.svg", class: "search-icon")%>
@@ -55,7 +61,7 @@
 
     <div class = "container-fluid">
       <div class = "row">
-        <% if (current_page?('/')) || (current_page?('/welcome/index.html'))   %>
+        <% if (current_page?(products_path)) || (current_page?(categories_path)) || (current_page?('/')) %>
           <div class = "col-2 menu">
             <ul>
               <li><h3>CATEGORIAS</h3></li>
