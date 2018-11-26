@@ -10,7 +10,8 @@ class SubjectsController < ApplicationController
   # GET /subjects/1
   # GET /subjects/1.json
   def show
-    @discussions = Discussion.all
+    @discussions = 
+    Discussion.where("subject_id = ?",  params[:id])
   end
 
   # GET /subjects/new
