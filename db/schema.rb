@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20181125225004) do
     t.index ["user_id"], name: "index_discussions_on_user_id"
   end
 
+  create_table "kart_items", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_kart_items_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.float    "price"
