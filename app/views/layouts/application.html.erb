@@ -17,14 +17,15 @@
         <%=image_tag("logo.svg", class: "logo")%>
       </a>
       <div class="mat-div">
-        <%# Added link to forum %>
-        <%=image_tag("search_icon.svg", class: "search-icon")%>
-        <input type="text" class="mat-input" id="search" placeholder = "Pesquise por um produto">
+        <%= form_tag(products_path, method: :get) do %>
+          <%=image_submit_tag("search_icon.svg", class:'search-icon')%>
+          <%=text_field_tag :term, nil,placeholder: 'Pesquise por um produto', class: 'mat-input', id: 'search' %>
+        <% end %>
       </div>
       <div class = "nav-icons">
-        <%=link_to image_tag("forum_icon.svg", class: "search-icon"),subjects_path%>
+        <%=link_to image_tag("forum_icon.svg", class: "search-icon"),subjects_path, class: 'icon-link'%>
         <%=link_to 'Fórum', subjects_path %>
-        <%=link_to image_tag("carrinho_icon.svg", class: "search-icon"), kart_items_path%>
+        <%=link_to image_tag("carrinho_icon.svg", class: "search-icon"), kart_items_path, class: 'icon-link'%>
         <%=link_to 'Carrinho', kart_items_path%>
         <%# Added block of button %>
         <div class="dropdown">
