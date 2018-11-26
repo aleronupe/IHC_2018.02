@@ -18,14 +18,6 @@ ActiveRecord::Schema.define(version: 20181125201206) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "kart_items", force: :cascade do |t|
-    t.integer  "quantity"
-    t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_kart_items_on_product_id"
-  end
-
   create_table "commentaries", force: :cascade do |t|
     t.text     "txt"
     t.integer  "user_id"
@@ -45,6 +37,14 @@ ActiveRecord::Schema.define(version: 20181125201206) do
     t.datetime "updated_at",  null: false
     t.index ["subject_id"], name: "index_discussions_on_subject_id"
     t.index ["user_id"], name: "index_discussions_on_user_id"
+  end
+
+  create_table "kart_items", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_kart_items_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
