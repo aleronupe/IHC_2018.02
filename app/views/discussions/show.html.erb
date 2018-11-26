@@ -1,13 +1,49 @@
 <p id="notice"><%= notice %></p>
+<div class="container mb-5">
+  <div class="row" id="question">
+    <div class="col-2">
+      <div class="border rounded" id="image-user">
+      </div>
+      <p class="fs-10">
+        <%= @author.id %>
+      </p>
+    </div>
+    <div class="col-9 border pt-3 rounded mb-5" id="main-card">
+      <h1 class="fs-25">
+        <%= @discussion.title %>
+      </h1>
+      <p class="text-muted">
+        <i><%= @author.email %></i>
+      </p>
+      <p class="lead fs-17 pt-3 text-justify">
+        <%= @discussion.description %>
+      </p>
+    </div>
+  </div>
+  <!--
+  #<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
+  #<%= link_to 'Back', discussions_path %>
+  -->
 
-<p>
-  <%= @discussion.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @discussion.description %>
-</p>
-
-<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
-<%= link_to 'Back', discussions_path %>
+  <div class="row" id="commentaries">
+    <% @commentaries.each do |commentary| %>
+      <div class="col-2">
+        <div class="border rounded" id="image-comment">
+        </div>
+        <p class="fs-10">
+          <%= commentary.user_id %>
+        </p>
+    </div>
+    <div class="col-8 border pt-3 rounded mb-5 back-primary">
+      <p class="text-muted">
+        <i>
+          <%= @users.where(id: commentary.user_id).pluck(:email)[0] %>
+        </i>
+      </p>
+      <p class="lead pt-3 fs-17 text-justify">
+        <%= commentary.txt %>
+      </p>
+    </div>
+    <% end %> 
+  </div>
+</div>

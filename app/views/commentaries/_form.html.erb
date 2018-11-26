@@ -17,13 +17,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.hidden_field :user_id, :value => current_user.id%>
   </div>
 
   <div class="field">
     <%= f.label :discussion_id %>
-    <%= f.text_field :discussion_id %>
+    <%= f.select :discussion_id, Discussion.all.collect { |discussion| [discussion.id, discussion.id] } %>
   </div>
 
   <div class="actions">

@@ -10,6 +10,9 @@ class DiscussionsController < ApplicationController
   # GET /discussions/1
   # GET /discussions/1.json
   def show
+    @author = User.find(@discussion.user_id)
+    @users = User.all
+    @commentaries = Commentary.where("discussion_id = ?", @discussion.id);
   end
 
   # GET /discussions/new
