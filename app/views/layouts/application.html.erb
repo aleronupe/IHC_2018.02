@@ -22,16 +22,9 @@
         <input type="text" class="mat-input" id="search" placeholder = "Pesquise por um produto">
       </div>
       <div class = "nav-icons">
-        <%=image_tag("forum_icon.svg", class: "search-icon")%>
-        <a href="/subjects/">Fórum</a>
-        <%# Added link to carrinho %>
-        <a href = "<%=kart_items_path%>" class = "icon-link">
-          <%=image_tag("carrinho_icon.svg", class: "search-icon")%>
-          <% @contador = KartItem.all.count %>
-          <% if @contador > 0%>
-            <p class = "item-count"><%=@contador%></p>
-          <% end %>
-        </a>
+        <%=link_to image_tag("forum_icon.svg", class: "search-icon"),subjects_path%>
+        <%=link_to 'Fórum', subjects_path %>
+        <%=link_to image_tag("carrinho_icon.svg", class: "search-icon"), kart_items_path%>
         <%=link_to 'Carrinho', kart_items_path%>
         <%# Added block of button %>
         <div class="dropdown">
@@ -41,12 +34,12 @@
         </button>
         <div class="dropdown-content">
           <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
-          <a class="dropdown-item"><%= button_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-button' %></a>
-          <a class="dropdown-item"><%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'dropdown-button'  %></a>
-          <% else %>
-          <a class="dropdown-item"><%= button_to "Sign up", new_user_registration_path, :class => 'dropdown-button'   %></a>
-          <a class="dropdown-item"><%= button_to "Login", new_user_session_path, :class => 'dropdown-button'  %></a>
+        <p>Olá <strong><%= current_user.username %></strong>.</p>
+          <%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'dropdown-button dropdown-item'%>
+          <%= link_to 'Sair', destroy_user_session_path, method: :delete, :class => 'dropdown-button dropdown-item'%>
+        <% else %>
+          <%= link_to 'Registre-se', new_user_registration_path, :class => 'dropdown-button dropdown-item'%>
+          <%= link_to 'Login', new_user_session_path, :class => 'dropdown-button dropdown-item'%>
           <% end %>
         </div>
       </div>
