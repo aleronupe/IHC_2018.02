@@ -32,13 +32,14 @@
        Perfil
        </button>
       <div class="dropdown-content">
+        
         <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <a class="dropdown-item"><%= button_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-button' %></a>
-        <a class="dropdown-item"><%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'dropdown-button'  %></a>
+        <p>Olá <strong><%= current_user.username %></strong>.</p>
+          <%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'dropdown-button dropdown-item'%>
+          <%= link_to 'Sair', destroy_user_session_path, method: :delete, :class => 'dropdown-button dropdown-item'%>
         <% else %>
-        <a class="dropdown-item"><%= button_to "Sign up", new_user_registration_path, :class => 'dropdown-button'   %></a>
-        <a class="dropdown-item"><%= button_to "Login", new_user_session_path, :class => 'dropdown-button'  %></a>
+          <%= link_to 'Registre-se', new_user_registration_path, :class => 'dropdown-button dropdown-item'%>
+          <%= link_to 'Login', new_user_session_path, :class => 'dropdown-button dropdown-item'%>
         <% end %>
       </div>
     </nav>
