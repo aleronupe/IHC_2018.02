@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :subjects
+  resources :commentaries
+  resources :discussions
+
   get 'search/index'
 
+
   devise_for :users
-
   resources :kart_items
-
   resources :products
   resources :categories
 

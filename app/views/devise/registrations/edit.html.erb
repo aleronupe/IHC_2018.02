@@ -8,6 +8,18 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  
+ <div class = "field">
+    <%=f.label :avatar do%>
+    <%=f.file_field :avatar %>
+    <%=f.hidden_field :avatar_cache %>
+    <%end%>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
@@ -20,6 +32,7 @@
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
+
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
