@@ -17,7 +17,7 @@
     <div class="row comment">
       <div class="col-2 comment-picture-wrapper">
         <%= image_tag @user.avatar, :class => "comment-picture" %>
-        <p class="text-center txt-commentary"><%=@user.username %></p>
+        <p class="text-center comment-user"><%=@user.username %></p>
       </div>
       <div class="col comment-content">
         <p class="commentary-txt">
@@ -34,13 +34,18 @@
       </div>
     </div>
   <% end %>
-  <div>
+  <div class = "new-comment">
     <%= form_for @commentary, :html => {:class => 'm-auto w-60'} do |f| %>
-      <div>
-        <%= f.text_area :txt, :class => "bordeqr rounded mt-3 txt-area", :placeholder => "Inserir um comentário..."%>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.hidden_field :discussion_id, :value => @discussion.id %>
-        <%=image_submit_tag("icons8-enviar-e-mail-96.png", class:'send-icon')%>
+      <div class = "row">
+        <div class = "col-2">
+          <%= image_tag current_user.avatar, :class => "logged-user-picture" %>
+        </div>
+        <div class = "col-9 offset-1">
+          <%= f.text_area :txt, :class => "bordeqr rounded mt-3 txt-area", :placeholder => "Inserir um comentário..."%>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :discussion_id, :value => @discussion.id %>
+          <%=image_submit_tag("icons8-enviar-e-mail-96.png", class:'send-icon')%>
+        </div>
       </div>
     <% end %>    
   </div>

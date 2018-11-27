@@ -14,6 +14,7 @@
             }
         }
         .post-text{
+            padding-right: 32px;
             h1.font-title{
                 font-family: Raleway;
                 font-style: normal;
@@ -73,25 +74,62 @@
                 object-fit: cover;
                 border-radius: 1000px;
                 border: 10px solid #AAFFCB;
-                margin: 32px 0px 32px 24px;
+                margin: 32px auto 12px auto;
+                display: block;
 
+            }
+            .comment-user{
+                font-family: Raleway;
+                font-style: normal;
+                font-weight: normal;
+                line-height: normal;
+                font-size: 14px;
+                text-align: center;
             }
         }
 
         .comment-content{
             p{
                 &.commentary-txt{
+                    margin-top: 32px;
                     font-family: Raleway;
                     font-style: normal;
-                    font-weight: 600;
+                    font-weight: normal;
                     line-height: normal;
-                    font-size: 25px;
-                    margin-top: 18px;
-                    padding-bottom: 12px;
-                    border-bottom: 1px solid #AAFFCB;
+                    font-size: 20px;
+                    text-align: justify;
                 }
             }
         }
     }
 
+    .new-comment{
+
+        margin: 64px auto 128px auto;
+        background: #AAFFCB;
+        border-radius: 100px;
+        border-collapse: separate; 
+        width: 60%;
+        .row{
+            .col-2{
+                .logged-user-picture{
+                    max-width: 130px;
+                    max-height: 130px;
+                    min-width: 130px;
+                    min-height: 130px;
+                    object-fit: cover;
+                    border-radius: 1000px;
+                    display: block;
+                    float: right;
+                }
+            }
+            .col-9{
+                textarea{
+                    width: 80%;
+                    height: 100%;
+                    margin: 0!important;
+                }
+            }
+        }
+    }
 }
