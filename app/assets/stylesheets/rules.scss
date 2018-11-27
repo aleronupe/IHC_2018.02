@@ -1,3 +1,10 @@
-// Place all the styles related to the rules controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.rules_image{
+    overflow-y: hidden;
+    img.rules-bg{
+          display: block;
+          object-fit: cover;
+          margin: 0 32px;
+          width: 30px;
+    }
+}
