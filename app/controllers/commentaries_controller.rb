@@ -28,7 +28,7 @@ class CommentariesController < ApplicationController
 
     respond_to do |format|
       if @commentary.save
-        format.html { redirect_to @commentary, notice: 'Commentary was successfully created.' }
+        format.html { redirect_to request.referrer, notice: 'Commentary was successfully created.' }
         format.json { render :show, status: :created, location: @commentary }
       else
         format.html { render :new }
