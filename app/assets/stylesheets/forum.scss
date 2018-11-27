@@ -9,9 +9,6 @@
       background-color: #ffcaca;
   }
 
-
-
-
   li a {
       font-family: Raleway;
       float: left;
@@ -22,7 +19,7 @@
       text-decoration: none;
       align-items: center;
     }
-  
+
 
   li a:hover:not(.theme) {
       background-color: $salmao-claro;
@@ -41,6 +38,30 @@
     padding: 14px 44px;
     text-decoration: none;
     background-color: $salmao-escuro;
+  }
+
+  .forum_image{
+      overflow-y: hidden;
+      img{
+          
+          object-fit: cover;
+
+      }
+      a{
+          position: absolute;
+          background: white;
+          border-radius: 30px;
+          top: 32px;
+          right: 18px;
+          width: 475px;
+          font-family: Raleway;
+          font-style: normal;
+          font-weight: normal;
+          line-height: normal;
+          font-size: 30px;
+
+          color: #000000;
+      }
   }
 
 
