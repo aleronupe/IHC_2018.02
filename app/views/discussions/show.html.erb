@@ -1,9 +1,9 @@
-<div class="pb-5 mb-5">
-  <div class="row border-bottom bw-2 border-black w-100">
-    <div class="col-2 pb-3 pt-3 image-user m-auto">
+<div class="pb-5 mb-5 post">
+  <div class="row border-bottom bw-2 border-black w-100 main-post">
+    <div class="col-2 m-auto">
       <%= image_tag @author.avatar, :class => "author-picture image-user" %>
     </div>
-    <div class="col">
+    <div class="col post-text">
       <h1 class="mt-4" id="font-title">
         <%= @discussion.title %>
       </h1>
