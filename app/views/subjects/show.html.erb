@@ -1,20 +1,47 @@
-<p id="notice"><%= notice %></p>
-<div class="container pt-3">
-  <h1 class="text-center">
-    <%= @subject.name %>
-  </h1>
-  <%= link_to 'Editar', edit_subject_path(@subject) %> |
-  <%= link_to 'Nova Discussão', new_discussion_path %>
-  <% @discussions.each do |discussion| %>
-  <div class="discussion-card mt-4">
-    <div class="row">
-      <h2 class="light-text col-auto txt-2 max-100"><%=discussion.title%></h2>
-      <%= link_to 'Ver Discussão', discussion, class:"col text-right red-text bold" %>
+<div class = "subject-wrapper">
+  <p id="title"><%= notice %></p>
+  <div class="container">
+    <div class = "discussion-header">
+      <h1 class="forum-name">
+        <%= @subject.name %>
+      </h1>
+      <%= link_to 'Nova Discussão', new_discussion_path %>
     </div>
-    <div class="row">
-      <p class="text-muted pb-0 mb-0 pt-2 col-auto">Postado dia <%=discussion.created_at.to_date.strftime "%d/%m/%Y" %> às <%=discussion.created_at.to_time.strftime "%H:%M" %> por <i><%= discussion.user_id %></i></p>
-    </div>
+    <% @discussions.each do |discussion| %>
+      <% user = User.where(id: discussion.user_id)[0]%>
+      <div class="discussion-card">
+        <div class="row">
+          <div class = "col-2 user-picture">
+            <%= image_tag user.avatar.url unless user.avatar.blank? %>
+          </div>
+          <div class = "col-5 post-detail">
+            <p class = "user-name"><%=user.username%></p>
+            <p class = "discussion-name"><%=discussion.title%></p>
+            <div class = "tags-wrapper-ghost">
+              <p>Tags</p>
+              <p class = "tags">#teste</p>
+            </div>
+            <div class = "tags-wrapper">
+              <p>Tags</p>
+              <p class = "tags">#teste</p>
+            </div>
+          </div>
+          <div class = "col-2 see-discussion">
+            <%=link_to 'Ver Discussão >', discussion %>
+          </div>
+          <div class = "col-3 post-data">
+            <p>
+              Postado dia <%=discussion.created_at.to_date.strftime "%d/%m/%Y" %>
+            </p>
+            <p>
+              Respostas:
+            </p>
+            <p>
+              Ultima Resposta em:
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <% end %>
-
 </div>
