@@ -49,7 +49,7 @@
 
     <div class = "container-fluid">
       <div class = "row">
-        <% if (current_page?(commentaries_path)) || (current_page?(discussions_path)) || (current_page?(subjects_path)) || current_page?('/subjects/1/') || current_page?('/subjects/2/') %>
+        <% if params[:controller] == 'commentaries' || params[:controller] == 'discussions'|| params[:controller] == 'subjects' %>
          <div class = "col-12 content">
           <%# Second navbar %>
             <div class = "navbar_forum">
@@ -63,7 +63,7 @@
                 <li><%= link_to 'Regras', Subject.find_by_name("Regras") %></li>
               </ul>
             </div>
-        <% elsif !(current_page?(kart_items_path))  %>
+        <% elsif params[:controller] == 'categories' || params[:controller] == 'products' || params[:controller] == 'welcome'  %>
           <div class = "col-2 menu">
             <ul>
               <li><h3>CATEGORIAS</h3></li>
@@ -93,8 +93,6 @@
           </div>
           <div class = "col-10 content">
           <%# If of pages with the bar of Forum %>
-
-
         <% else %>
           <div class = "col-12 content">
         <% end %>
