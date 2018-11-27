@@ -5,7 +5,9 @@
       <h1 class="forum-name">
         <%= @subject.name %>
       </h1>
+      <% if user_signed_in? %>
       <%= link_to 'Nova Discussão', new_discussion_path %>
+      <% end %>
     </div>
     <% @discussions.each do |discussion| %>
       <% user = User.where(id: discussion.user_id)[0]%>

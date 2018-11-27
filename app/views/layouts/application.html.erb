@@ -52,7 +52,7 @@
         <% if params[:controller] == 'commentaries' || params[:controller] == 'discussions'|| params[:controller] == 'subjects' %>
          <div class = "col-12 content">
           <%# Second navbar %>
-            <div class = "navbar_forum">
+            <div class = "navbar_forum sticky-top">
               <ul>
                 <li><a class = "theme" href ="/subjects">Temas</a><li>
                 <li><%= link_to 'Sexo', Subject.find_by_name("Sexo") %></li>

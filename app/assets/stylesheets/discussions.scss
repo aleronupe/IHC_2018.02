@@ -3,11 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .image-user{
-    height: 130px !important;
-    width: 130px !important;
+    max-width: 150px;
+    max-height: 150px;
+    min-width: 150px;
+    min-height: 150px;
+    padding: 0;
 }
 .author-picture{
-    max-width: 100%;
     object-fit: cover;
     border-radius: 1000px;
     border: 10px solid #FF7E60;
@@ -101,4 +103,21 @@
 .send-icon{
     margin-bottom: 5%;
     width: 6%;
+}
+
+.post{
+    .row{
+        padding: 16px;
+        .main-post{
+            .post-text{
+                #font-title{
+                    font-family: Raleway;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    font-size: 35px;
+                }
+            }
+        }
+    }
 }
