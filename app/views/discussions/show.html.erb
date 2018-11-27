@@ -34,6 +34,7 @@
       </div>
     </div>
   <% end %>
+  <% if user_signed_in? %>
   <div class = "new-comment">
     <%= form_for @commentary, :html => {:class => 'm-auto w-60'} do |f| %>
       <div class = "row">
@@ -49,4 +50,5 @@
       </div>
     <% end %>    
   </div>
+  <% end %>
 <div>
