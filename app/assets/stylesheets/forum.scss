@@ -9,20 +9,31 @@
       overflow: hidden;
       background-color: #ffcaca;
   }
-
+  li{
+    &.no-click{
+      background-color: #FF6547 !important;
+    }
+  }
   li a {
       font-family: Raleway;
       float: left;
-      display: block;
       color: black;
-      text-align: center;
-      padding: 17px 44px;
+      width: 100%;
+      text-align: center; 
       text-decoration: none;
       align-items: center;
+      height: 100%;
+      vertical-align: middle;
+      text-align: center;
+      line-height: 100%;
+      &.item{
+        line-height: 48px;
+        height: 48px;
+      }
     }
 
 
-  li a:hover:not(.theme) {
+  li:hover:not(.theme) {
 
     &:not(.active){
       background-color: $salmao-claro;
