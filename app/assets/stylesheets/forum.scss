@@ -23,9 +23,17 @@
 
 
   li a:hover:not(.theme) {
+
+    &:not(.active){
       background-color: $salmao-claro;
       text-decoration: underline
+    }
+      
+  }
 
+  .active{
+    background-color: $salmao-claro;
+    text-decoration: underline
   }
 
   .theme {
