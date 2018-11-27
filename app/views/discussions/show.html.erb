@@ -1,24 +1,26 @@
-<div class="pb-5 mb-5 post">
-  <div class="row border-bottom bw-2 border-black w-100 main-post">
-    <div class="col-2 m-auto">
+<div class="post">
+  <div class="row main-post">
+    <div class="col-2 author-picture-wrapper">
       <%= image_tag @author.avatar, :class => "author-picture image-user" %>
     </div>
     <div class="col post-text">
-      <h1 class="mt-4" id="font-title">
+      <h1 class="font-title">
         <%= @discussion.title %>
       </h1>
       <p class="main-font"><%= @users.where(id: @discussion.user_id).pluck(:username)[0] %></p>
+      <p class="description"><%= @discussion.description %></p>
+      <p class="date">Criado em <%= @discussion.created_at.to_date.strftime "%d/%m/%Y" %></p>
     </div>
   </div>
   <% @commentaries.each do |commentary| %>
-    <div class="row border-bottom bw-2 border-black w-100">
-      <div class="col-2 border-right pt-3 pb-3 bw-2 border-black">
-        <div class="border rounded-circle m-auto border-blue" id="image-comment">
-        </div>
-        <p class="text-center txt-commentary"><%= @users.where(id: commentary.user_id).pluck(:username)[0] %></p>
+    <%@user =  @users.where(id: commentary.user_id)[0]%>
+    <div class="row comment">
+      <div class="col-2 comment-picture-wrapper">
+        <%= image_tag @user.avatar, :class => "comment-picture" %>
+        <p class="text-center comment-user"><%=@user.username %></p>
       </div>
-      <div class="col pt-4 pl-4">
-        <p class="lead text-justify txt-commentary">
+      <div class="col comment-content">
+        <p class="commentary-txt">
           <%= commentary.txt %>
         </p>
         <p class="text-muted posted-at">
@@ -32,13 +34,18 @@
       </div>
     </div>
   <% end %>
-  <div class="w-100">
+  <div class = "new-comment">
     <%= form_for @commentary, :html => {:class => 'm-auto w-60'} do |f| %>
-      <div class="m-auto">
-        <%= f.text_area :txt, :class => "border rounded mt-3 txt-area", :placeholder => "Inserir um comentário..."%>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.hidden_field :discussion_id, :value => @discussion.id %>
-        <%=image_submit_tag("icons8-enviar-e-mail-96.png", class:'send-icon')%>
+      <div class = "row">
+        <div class = "col-2">
+          <%= image_tag current_user.avatar, :class => "logged-user-picture" %>
+        </div>
+        <div class = "col-9 offset-1">
+          <%= f.text_area :txt, :class => "bordeqr rounded mt-3 txt-area", :placeholder => "Inserir um comentário..."%>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :discussion_id, :value => @discussion.id %>
+          <%=image_submit_tag("icons8-enviar-e-mail-96.png", class:'send-icon')%>
+        </div>
       </div>
     <% end %>    
   </div>
