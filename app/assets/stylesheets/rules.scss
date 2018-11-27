@@ -1,0 +1,25 @@
+
+.rules_image{
+    overflow-y: hidden;
+    img.rules-bg{
+          display: block;
+          object-fit: cover;
+          margin: 0 auto;
+          width: 90%;
+    }
+    a{
+        position: absolute;
+        background: white;
+        border-radius: 30px;
+        top: 32px;
+        right: 18px;
+        width: 475px;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 30px;
+
+        color: #000000;
+    }
+}

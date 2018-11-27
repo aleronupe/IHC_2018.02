@@ -24,7 +24,7 @@
       </div>
       <div class = "nav-icons">
         <%=link_to image_tag("forum_icon.svg", class: "search-icon"),subjects_path, class: 'icon-link'%>
-        <%=link_to 'Fórum', subjects_path %>
+        <%=link_to 'Conversas', subjects_path %>
         <%=link_to image_tag("carrinho_icon.svg", class: "search-icon"), kart_items_path, class: 'icon-link'%>
         <%=link_to 'Carrinho', kart_items_path%>
         <%# Added block of button %>
@@ -49,18 +49,18 @@
 
     <div class = "container-fluid">
       <div class = "row">
-        <% if params[:controller] == 'commentaries' || params[:controller] == 'discussions'|| params[:controller] == 'subjects' %>
+        <% if params[:controller] == 'commentaries' || params[:controller] == 'discussions'|| params[:controller] == 'subjects' || params[:controller] == 'rules' %>
          <div class = "col-12 content">
           <%# Second navbar %>
             <div class = "navbar_forum sticky-top">
-              <ul>
-                <li><a class = "theme" href ="/subjects">Temas</a><li>
-                <li><%= link_to 'Sexo', Subject.find_by_name("Sexo") %></li>
-                <li><%= link_to 'Ciclo Menstrual', Subject.find_by_name("Ciclo Menstrual") %></li>
-                <li><%= link_to 'Maternidade', Subject.find_by_name("Maternidade") %></li>
-                <li><%= link_to 'Dicas de Produtos', Subject.find_by_name("Dicas de Produtos") %></li>
-                <li><%= link_to 'Em Alta', Subject.find_by_name("Em Alta") %></li>
-                <li><%= link_to 'Regras', Subject.find_by_name("Regras") %></li>
+              <ul class="row">
+                <li class="col pl-0"><a class = "theme" href ="/subjects">Temas</a><li>
+                <li class="col"><%= link_to 'Sexo', Subject.find_by_name("Sexo") %></li>
+                <li class="col"><%= link_to 'Ciclo Menstrual', Subject.find_by_name("Ciclo Menstrual") %></li>
+                <li class="col"><%= link_to 'Maternidade', Subject.find_by_name("Maternidade") %></li>
+                <li class="col pr-0 pl-0 "><%= link_to 'Dicas de Produtos', Subject.find_by_name("Dicas de Produtos"), :style => 'height: 100% !important;', :class => 'pt-3' %></li>
+                <li class="col"><%= link_to 'Em Alta', Subject.find_by_name("Em Alta") %></li>
+                <li class="col"><a href ="/rules/index">Regras</a></li>
               </ul>
             </div>
         <% elsif params[:controller] == 'categories' || params[:controller] == 'products' || params[:controller] == 'welcome'  %>
