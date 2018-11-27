@@ -7,6 +7,8 @@
 @import 'categories';
 @import 'products';
 @import 'kart_items';
+@import 'devise';
+
 .btn{
     font-style: normal;
     font-weight: bold;
@@ -147,8 +149,8 @@
             .dropdown-button {
                 text-decoration: underline;
                 color: #E24763;
-            } 
-        } 
+            }
+        }
 
 
 
