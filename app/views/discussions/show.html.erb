@@ -1,13 +1,13 @@
 <div class="pb-5 mb-5">
   <div class="row border-bottom bw-2 border-black w-100">
-    <div class="col-2 pt-3 pb-3">
-      <div class="border rounded-circle m-auto border-orange" id="image-user">
-      </div>
+    <div class="col-2 pb-3 pt-3 image-user m-auto">
+      <%= image_tag @author.avatar, :class => "author-picture image-user" %>
     </div>
     <div class="col">
       <h1 class="mt-4" id="font-title">
         <%= @discussion.title %>
       </h1>
+      <p class="main-font"><%= @users.where(id: @discussion.user_id).pluck(:username)[0] %></p>
     </div>
   </div>
   <% @commentaries.each do |commentary| %>
@@ -15,7 +15,7 @@
       <div class="col-2 border-right pt-3 pb-3 bw-2 border-black">
         <div class="border rounded-circle m-auto border-blue" id="image-comment">
         </div>
-        <p class="text-center txt-commentary">Nome</p>
+        <p class="text-center txt-commentary"><%= @users.where(id: commentary.user_id).pluck(:username)[0] %></p>
       </div>
       <div class="col pt-4 pl-4">
         <p class="lead text-justify txt-commentary">

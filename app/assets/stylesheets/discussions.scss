@@ -2,9 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#image-user{
+.image-user{
     height: 130px !important;
     width: 130px !important;
+}
+.author-picture{
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 1000px;
+    border: 10px solid #FF7E60;
 }
 
 .fs-10{
@@ -77,6 +83,13 @@
     font-family: Raleway;
     font-style: Regular;
     font-size: 15px;
+    line-height: 23px;
+}
+
+.main-font{
+    font-family: Raleway;
+    font-style: Regular;
+    font-size: 20px;
     line-height: 23px;
 }
 
