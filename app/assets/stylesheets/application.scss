@@ -8,6 +8,7 @@
 @import 'categories';
 @import 'products';
 @import 'kart_items';
+@import 'devise';
 @import 'discussions';
 @import 'subjects';
 @import 'commentaries';
@@ -130,7 +131,7 @@
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
-            
+
             p{
                 padding: 16px 0px;
                 text-align: center;
