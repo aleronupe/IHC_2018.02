@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<div class="container pt-3">
+  <h1 class="text-center">
+    <%= @subject.name %>
+  </h1>
+  <%= link_to 'Editar', edit_subject_path(@subject) %> |
+  <%= link_to 'Nova Discussão', new_discussion_path %>
+  <% @discussions.each do |discussion| %>
+  <div class="discussion-card mt-4">
+    <div class="row">
+      <h2 class="light-text col-auto txt-2 max-100"><%=discussion.title%></h2>
+      <%= link_to 'Ver Discussão', discussion, class:"col text-right red-text bold" %>
+    </div>
+    <div class="row">
+      <p class="text-muted pb-0 mb-0 pt-2 col-auto">Postado dia <%=discussion.created_at.to_date.strftime "%d/%m/%Y" %> às <%=discussion.created_at.to_time.strftime "%H:%M" %> por <i><%= discussion.user_id %></i></p>
+    </div>
+  </div>
+  <% end %>
+
+</div>
