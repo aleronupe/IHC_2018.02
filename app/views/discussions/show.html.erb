@@ -1,49 +1,45 @@
-<p id="notice"><%= notice %></p>
-<div class="container mb-5">
-  <div class="row" id="question">
-    <div class="col-2">
-      <div class="border rounded" id="image-user">
+<div class="pb-5 mb-5">
+  <div class="row border-bottom bw-2 border-black w-100">
+    <div class="col-2 pt-3 pb-3">
+      <div class="border rounded-circle m-auto border-orange" id="image-user">
       </div>
-      <p class="fs-10">
-        <%= @author.id %>
-      </p>
     </div>
-    <div class="col-9 border pt-3 rounded mb-5" id="main-card">
-      <h1 class="fs-25">
+    <div class="col">
+      <h1 class="mt-4" id="font-title">
         <%= @discussion.title %>
       </h1>
-      <p class="text-muted">
-        <i><%= @author.email %></i>
-      </p>
-      <p class="lead fs-17 pt-3 text-justify">
-        <%= @discussion.description %>
-      </p>
     </div>
   </div>
-  <!--
-  #<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
-  #<%= link_to 'Back', discussions_path %>
-  -->
-
-  <div class="row" id="commentaries">
-    <% @commentaries.each do |commentary| %>
-      <div class="col-2">
-        <div class="border rounded" id="image-comment">
+  <% @commentaries.each do |commentary| %>
+    <div class="row border-bottom bw-2 border-black w-100">
+      <div class="col-2 border-right pt-3 pb-3 bw-2 border-black">
+        <div class="border rounded-circle m-auto border-blue" id="image-comment">
         </div>
-        <p class="fs-10">
-          <%= commentary.user_id %>
+        <p class="text-center txt-commentary">Nome</p>
+      </div>
+      <div class="col pt-4 pl-4">
+        <p class="lead text-justify txt-commentary">
+          <%= commentary.txt %>
         </p>
+        <p class="text-muted posted-at">
+          Postado em 
+          <%= commentary.created_at.to_date.strftime "%d/%m/%Y" %>
+          às
+          <%= commentary.created_at.to_time.strftime "%H:%M" %>
+        </p>
+      </div>
+      <div class="col-2">
+      </div>
     </div>
-    <div class="col-8 border pt-3 rounded mb-5 back-primary">
-      <p class="text-muted">
-        <i>
-          <%= @users.where(id: commentary.user_id).pluck(:email)[0] %>
-        </i>
-      </p>
-      <p class="lead pt-3 fs-17 text-justify">
-        <%= commentary.txt %>
-      </p>
-    </div>
-    <% end %> 
+  <% end %>
+  <div class="w-100">
+    <%= form_for @commentary, :html => {:class => 'm-auto w-60'} do |f| %>
+      <div class="m-auto">
+        <%= f.text_area :txt, :class => "border rounded mt-3 txt-area", :placeholder => "Inserir um comentário..."%>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :discussion_id, :value => @discussion.id %>
+        <%=image_submit_tag("icons8-enviar-e-mail-96.png", class:'send-icon')%>
+      </div>
+    <% end %>    
   </div>
-</div>
+<div>

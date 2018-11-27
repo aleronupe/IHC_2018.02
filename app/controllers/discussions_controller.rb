@@ -12,7 +12,8 @@ class DiscussionsController < ApplicationController
   def show
     @author = User.find(@discussion.user_id)
     @users = User.all
-    @commentaries = Commentary.where("discussion_id = ?", @discussion.id);
+    @commentaries = Commentary.where("discussion_id = ?", @discussion.id)
+    @commentary = Commentary.new
   end
 
   # GET /discussions/new
