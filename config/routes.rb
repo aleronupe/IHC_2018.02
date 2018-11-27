@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :subjects
+  get 'rules/index'
+
+  get 'rules/trending'
+
+  resources :subjects do  
+    member do     
+      get :rules  
+    end
+  end
   resources :commentaries
   resources :discussions
 
@@ -11,6 +19,7 @@ Rails.application.routes.draw do
   resources :kart_items
   resources :products
   resources :categories
+
 
   get 'welcome/index'
 

@@ -7,6 +7,9 @@ class SubjectsController < ApplicationController
     @subjects = Subject.all
   end
 
+  def rules
+  end
+
   # GET /subjects/1
   # GET /subjects/1.json
   def show
@@ -63,6 +66,8 @@ class SubjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

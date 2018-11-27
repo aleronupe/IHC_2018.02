@@ -49,7 +49,7 @@
 
     <div class = "container-fluid">
       <div class = "row">
-        <% if params[:controller] == 'commentaries' || params[:controller] == 'discussions'|| params[:controller] == 'subjects' %>
+        <% if params[:controller] == 'commentaries' || params[:controller] == 'discussions'|| params[:controller] == 'subjects' || params[:controller] == 'rules' %>
          <div class = "col-12 content">
           <%# Second navbar %>
             <div class = "navbar_forum sticky-top">
@@ -60,7 +60,7 @@
                 <li><%= link_to 'Maternidade', Subject.find_by_name("Maternidade") %></li>
                 <li><%= link_to 'Dicas de Produtos', Subject.find_by_name("Dicas de Produtos") %></li>
                 <li><%= link_to 'Em Alta', Subject.find_by_name("Em Alta") %></li>
-                <li><%= link_to 'Regras', Subject.find_by_name("Regras") %></li>
+                <li><a href ="/rules/index">Regras</a></li>
               </ul>
             </div>
         <% elsif params[:controller] == 'categories' || params[:controller] == 'products' || params[:controller] == 'welcome'  %>
