@@ -1,5 +1,17 @@
-<h1>New Discussion</h1>
 
-<%= render 'form', discussion: @discussion %>
+<div class = "subject-wrapper">
+  <p id="title"><%= notice %></p>
+  <div class="container">
+    <div class = "discussion-header">
+      <h1 class="forum-name">Nova Discussão</h1>
+    </div>
+  </div>
+</div>
+
+<div class = "container-forum m-auto">
+  <%= render 'form', discussion: @discussion %>
+</div>
+
+
 
 <%= link_to 'Back', discussions_path %>

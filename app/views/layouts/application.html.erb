@@ -55,12 +55,42 @@
             <div class = "navbar_forum sticky-top">
               <ul class="row">
                 <li class="col active no-click"><a class = "theme" href ="/subjects">Temas</a><li>
-                <li class="col"><%= link_to 'Sexo', Subject.find_by_name("Sexo"), class: "item" %></li>
-                <li class="col"><%= link_to 'Ciclo Menstrual', Subject.find_by_name("Ciclo Menstrual"), class: "item" %></li>
-                <li class="col"><%= link_to 'Maternidade', Subject.find_by_name("Maternidade"), class: "item" %></li>
-                <li class="col"><%= link_to 'Dicas de Produtos', Subject.find_by_name("Dicas de Produtos"), class: "item" %></li>
-                <li class="col"><%= link_to 'Em Alta', Subject.find_by_name("Em Alta"), class: "item" %></li>
-                <li class="col"><a href ="/rules/index" class = "item" >Regras</a></li>
+                <% if(current_page?('/subjects/1')) %>
+                  <li class="col active"><%= link_to 'Sexo', Subject.find_by_name("Sexo"), class: "item" %></li>
+                <% else %>
+                  <li class="col"><%= link_to 'Sexo', Subject.find_by_name("Sexo"), class: "item" %></li>
+                <%end%>
+
+                <% if(current_page?('/subjects/2')) %>
+                  <li class="col active"><%= link_to 'Ciclo Menstrual', Subject.find_by_name("Ciclo Menstrual"), class: "item" %></li>
+                <% else %>
+                  <li class="col"><%= link_to 'Ciclo Menstrual', Subject.find_by_name("Ciclo Menstrual"), class: "item" %></li>
+                <%end%>
+
+                <% if(current_page?('/subjects/3')) %>
+                  <li class="col active"><%= link_to 'Maternidade', Subject.find_by_name("Maternidade"), class: "item" %></li>
+                <% else %>
+                  <li class="col"><%= link_to 'Maternidade', Subject.find_by_name("Maternidade"), class: "item" %></li>
+                <%end%>
+
+                <% if(current_page?('/subjects/4')) %>
+                  <li class="col active"><%= link_to 'Dicas de Produtos', Subject.find_by_name("Dicas de Produtos"), class: "item" %></li>
+                <% else %>
+                  <li class="col"><%= link_to 'Dicas de Produtos', Subject.find_by_name("Dicas de Produtos"), class: "item" %></li>
+                <%end%>
+
+                <% if(current_page?('/subjects/5')) %>
+                  <li class="col active"><%= link_to 'Em Alta', Subject.find_by_name("Em Alta"), class: "item" %></li>
+                <% else %>
+                  <li class="col"><%= link_to 'Em Alta', Subject.find_by_name("Em Alta"), class: "item" %></li>
+                <%end%>
+
+                <% if(current_page?('/rules/index')) %>
+                  <li class="col active"><a href ="/rules/index" class = "item" >Regras</a></li>
+                <% else %>
+                  <li class="col"><a href ="/rules/index" class = "item" >Regras</a></li>
+                <%end%>
+
               </ul>
             </div>
         <% elsif params[:controller] == 'categories' || params[:controller] == 'products' || params[:controller] == 'welcome'  %>

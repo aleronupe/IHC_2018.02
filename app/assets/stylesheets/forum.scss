@@ -20,7 +20,7 @@
       float: left;
       color: black;
       width: 100%;
-      text-align: center; 
+      text-align: center;
       text-decoration: none;
       align-items: center;
       height: 100%;
@@ -40,11 +40,12 @@
       background-color: $salmao-claro;
       text-decoration: underline
     }
-      
+
   }
 
   .active{
     background-color: $salmao-claro;
+    font-weight: bolder;
     text-decoration: underline
   }
 
@@ -61,7 +62,7 @@
     background-color: $salmao-escuro;
   }
 
-  
+
 }
 
 .forum_image{
@@ -87,4 +88,37 @@
 
         color: #000000;
     }
+}
+
+.container-forum{
+  width: 50% !important;
+
+  .field{
+    label{
+      font-family: Amatic SC;
+      font-size: 50px;
+      margin-right: 20px;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    input{
+      padding: 12px 300px;
+      margin-bottom: 20px;
+      outline-color: $salmao-escuro;
+    }
+    textarea{
+      padding: 80px 304px;
+      outline-color: $salmao-escuro;
+
+    }
+    select{
+      outline: none;
+      font-family: Raleway;
+      padding: 10px 50px;
+      background-color:  rgb(253, 146, 122);
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
+    }
+  }
 }
