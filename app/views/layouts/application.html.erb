@@ -25,8 +25,15 @@
       <div class = "nav-icons">
         <%=link_to image_tag("forum_icon.svg", class: "search-icon"),subjects_path, class: 'icon-link'%>
         <%=link_to 'Conversas', subjects_path %>
-        <%=link_to image_tag("carrinho_icon.svg", class: "search-icon"), kart_items_path, class: 'icon-link'%>
+        <a href = "<%=kart_items_path%>" class = "icon-link">
+          <%=image_tag("carrinho_icon.svg", class: "search-icon")%>
+          <% @contador = KartItem.all.count %>
+          <% if @contador > 0%>
+            <p class = "item-count"><%=@contador%></p>
+          <% end %>
+        </a>
         <%=link_to 'Carrinho', kart_items_path%>
+
         <%# Added block of button %>
         <div class="dropdown">
         <button type="button" class="dropbtn">

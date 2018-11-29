@@ -1,6 +1,6 @@
 
 .navbar_forum{
-    border-bottom: 1px solid $salmao-escuro;
+    border-bottom: 2px solid $salmao-escuro;
     height: 48px;
     z-index: 10;
   ul {
@@ -96,18 +96,18 @@
   .field{
     label{
       font-family: Amatic SC;
-      font-size: 50px;
+      font-size: 40px;
       margin-right: 20px;
       margin-bottom: 0;
       margin-top: 0;
     }
     input{
-      padding: 12px 300px;
+      padding: 10px 300px;
       margin-bottom: 20px;
       outline-color: $salmao-escuro;
     }
     textarea{
-      padding: 80px 304px;
+      padding: 70px 304px;
       outline-color: $salmao-escuro;
 
     }
@@ -119,6 +119,7 @@
       -webkit-border-radius: 20px;
       -moz-border-radius: 20px;
       border-radius: 20px;
+      margin-bottom: 10px;
     }
   }
 }
